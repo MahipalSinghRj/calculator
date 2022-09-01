@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'checkBox.dart';
 import 'my_buttons.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,9 +11,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: ThemeData(
+fontFamily: 'Digital'
+      ),
+      home: MyCheckbox(),
     ); // MaterialApp
   }
 }
@@ -54,6 +59,8 @@ class _HomePageState extends State<HomePage> {
       return true;
     }
     return false;
+
+
   }
 
   @override
@@ -87,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                           style: const TextStyle(
                               fontSize: 30,
                               color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                              fontWeight: FontWeight.bold,fontFamily: 'Digital'),
                         ),
                       )
                     ]),
@@ -110,6 +117,7 @@ class _HomePageState extends State<HomePage> {
                             setState(() {
                               userInput = '';
                               answer = 0;
+
                             });
                           },
                           buttonText: buttons[index],
@@ -123,6 +131,7 @@ class _HomePageState extends State<HomePage> {
                           buttonText: buttons[index],
                           color: Colors.blue[50],
                           textColor: Colors.black,
+
                         );
                       }
                       // % Button
@@ -130,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                         return MyButton(
                           buttontapped: () {
                             setState(() {
+
                               if (userInput.isEmpty) {
                                 var mode = buttons[index];
 
